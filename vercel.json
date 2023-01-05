@@ -1,14 +1,21 @@
 {
-    "builds":[
-        {
-            "src":"./server/index.js",
-            "use":"@vercel/node"
-        }
+    "version": 2,
+    "builds": [
+      {
+        "src": "./server/index.js",  
+        "use": "@vercel/node"
+      },
+      {
+        "src": "./frontend/build",    
+        "use": "@vercel/static"
+      }
     ],
-    "routes":[
-        {
-            "src":"/.*",
-            "dest":"./server/app.js"
-        }
+  
+   
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "./server/index.js"
+      }
     ]
-}
+  }
